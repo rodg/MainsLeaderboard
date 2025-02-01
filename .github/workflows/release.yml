@@ -29,8 +29,7 @@ jobs:
           
           # After this finishes, you should have a built EXE in your repo workspace folder
           # e.g., at .\bin\my-app.exe
-          sudo apt-get install zip -y
-          zip -9 /dist/server.zip /dist/server.exe
+          zip -9 /app/dist/server.zip /app/dist/server.exe
           
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
