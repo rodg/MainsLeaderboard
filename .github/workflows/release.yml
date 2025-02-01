@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*.*.*'   # e.g., v1.0.0, v1.2.3, etc.
 
+permissions:
+  contents: write 
+
 jobs:
   build:
     name: Build Windows EXE
@@ -32,7 +35,6 @@ jobs:
         with:
           name: mains-leaderboard
           path: dist/server.exe  # adjust if your exe is in a different location
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -51,3 +53,5 @@ jobs:
           asset_path: dist/server.exe
           asset_name: server.exe
           asset_content_type: application/octet-stream
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
