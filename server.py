@@ -204,6 +204,7 @@ def total_pokemon():
 
 if __name__ == "__main__":
     # Retrieve primary IP address
+    print("I'm not a virus :-)")
     import socket
 
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
