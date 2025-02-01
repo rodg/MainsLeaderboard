@@ -29,12 +29,14 @@ jobs:
           
           # After this finishes, you should have a built EXE in your repo workspace folder
           # e.g., at .\bin\my-app.exe
+          apt install zip
+          zip -9 /dist/server.zip /dist/server.exe
           
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: mains-leaderboard
-          path: dist/server.exe  # adjust if your exe is in a different location
+          path: dist/server.zip  # adjust if your exe is in a different location
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -50,8 +52,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/server.exe
-          asset_name: MainsLeaderboard.exe
-          asset_content_type: application/octet-stream
+          asset_path: dist/server.zip
+          asset_name: MainsLeaderboard.zip
+          asset_content_type: application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
