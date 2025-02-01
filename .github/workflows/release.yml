@@ -51,7 +51,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: dist/server.exe
-          asset_name: server.exe
+          asset_name: MainsLeaderboard.exe
           asset_content_type: application/octet-stream
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
