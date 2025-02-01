@@ -33,17 +33,6 @@ jobs:
           name: mains-leaderboard
           path: dist/server.exe  # adjust if your exe is in a different location
 
-  release:
-    name: Create GitHub Release
-    runs-on: ubuntu-latest
-    needs: build  # wait for the build job to complete
-
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: mains-leaderboard
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
